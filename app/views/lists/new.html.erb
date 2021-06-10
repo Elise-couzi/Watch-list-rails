@@ -1,10 +1,11 @@
-<h1>Créé toi</h1>
+<h1>Add a list</h1>
 
 <div class="class container">
   <%= simple_form_for @list do |f| %>
     <%= f.input :name %>
     <%= f.association :movies %>
     <%= f.association :bookmarks %>
-    <%= f.button :submit %>
+    <%= f.button :submit, "Create a list" %>  
   <% end %>
 </div>
+
