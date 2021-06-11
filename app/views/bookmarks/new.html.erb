@@ -1,8 +1,8 @@
-<h1>Add a movie to your <%= @list.name %></h1>
+<h1 class="nav justify-content-center">Add a movie to : <%= @list.name %></h1>
 
-<div class="class container">
+<div class="container">
   <%= simple_form_for [@list, @bookmark] do |f| %>
-    <%= f.input :comment, placeholder: 'Enter a comment about the movie' %>
+    <%= f.input :comment, placeholder: 'Enter a comment about the movie', class: 'form-control' %>
     <%= f.association :movie %>
     <%= f.button :submit, "Create a movie", class: 'btn btn-success' %>
   <% end %>
