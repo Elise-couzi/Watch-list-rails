@@ -1,4 +1,8 @@
+<div class="container">
 <h1>All lists</h1>
+</div>
+
+<div class="class container">
 <ul>
   <% @lists.each do |list| %>
     <li>
@@ -7,4 +11,5 @@
   <% end %>
 </ul>
   
-  <%=link_to "Add a list", new_list_path %>
+  <%=link_to "Add a list", new_list_path, class: 'btn btn-info' %>
+</div>

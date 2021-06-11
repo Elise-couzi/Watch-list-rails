@@ -5,9 +5,7 @@ class ListsController < ApplicationController
     @lists = List.all
   end
 
-  def show
-    @list = List.new
-  end
+  def show; end
 
   def new
     @list = List.new
@@ -25,7 +23,7 @@ class ListsController < ApplicationController
 
   def destroy
     @list.destroy
-    redirect_to list_path(@list)
+    redirect_to lists_path
   end
 
   private

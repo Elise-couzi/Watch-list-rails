@@ -1,19 +1,15 @@
-<h1><%= @list.name %></h1>
+<div class="class container">
+<h1>This is the list : <%= @list.name %></h1>
 
-<% @list.movies.each do |movie| %>
-    <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
-    <%= movie.title %>
-    <%= movie.rating %>
-    <%= movie.overview %>
-     <%= bookmark.comment %>
-<% end %>
-<div>
-<%= link_to 'Add a movie', new_list_bookmark_path(@list) %>
+<p><% @list.bookmarks.each do |bookmark| %>
+    <%= bookmark.movie.title %> :
+     <%= bookmark.comment %> :
+     <%= bookmark.movie.rating %> 
+     <%= link_to 'Delete my movie', bookmark_path(bookmark), method: :delete, class: 'text-danger', data: { confirm: 'Are you sure you want to delete this list?' } %>
+  <% end %>
+</p>
+<%=link_to 'Add a movie', new_list_bookmark_path(@list), class: 'btn btn-success' %>
+<%= link_to 'Detete this list', list_path(@list), method: :delete, class: 'text-danger', data: { confirm: 'Are you sure you want to delete this list?' } %>
+<%= link_to 'Back to my lists', lists_path, class: 'btn btn-info' %>
 </div>
-<%= link_to 'Detete this list', list_path(@list), method: :delete, class: 'btn btn-cancel', data: { confirm: 'Are you sure you want to delete this list?' } %>
-</div>
-
-<div>
-<%= link_to 'Back to my lists', lists_path %>
-<%# <%= link_to 'Delete ', bookmark_path(@list), method: :delete, data: { confirm: "Are you sure?" }, class: 'text-danger' %> %>
-</div>
+<%= console %>
